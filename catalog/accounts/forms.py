@@ -15,11 +15,11 @@ class RegisterForm(UserCreationForm):
         model = User
         extra_fields = ["email"]
         fields = ["username", "password1", "password2"]
-        
+
+
 class ProfileUpdateForm(forms.Form):
     email = forms.EmailField(label="Email:")
     avatar = forms.ImageField(required=False, label="Avatar:")
-    
 
     def clean_email(self):
         new_email = self.cleaned_data.get("email")
@@ -46,4 +46,3 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(), required=True, label="Password:"
     )
-    password = forms.CharField(widget=forms.PasswordInput(), required=True, label="Password:")

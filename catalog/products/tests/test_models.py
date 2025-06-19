@@ -67,6 +67,7 @@ def test_order_model_one_item(order, product):
     order_item = OrderItem.objects.create(
         order=order, product=product, price=product.discount_price
     )
+
     assert order_item.amount == 1
     assert order_item.item_total == product.price
 
@@ -74,7 +75,8 @@ def test_order_model_one_item(order, product):
 @pytest.mark.django_db
 def test_order_model_multiple_items(order, product):
     order_item = OrderItem.objects.create(
-        order=order, product=product, amount=10, price=product.discount_price)
+        order=order, product=product, amount=10, price=product.discount_price
+    )
 
     assert order_item.amount == 10
     assert order_item.item_total == product.price * 10
@@ -91,6 +93,7 @@ def test_order_model_discount_item(order, product_discount):
 
 @pytest.mark.django_db
 def test_order_model_different_items(order, product_discount, product):
+
     order_item_1 = OrderItem.objects.create(
         order=order, product=product, price=product.discount_price
     )

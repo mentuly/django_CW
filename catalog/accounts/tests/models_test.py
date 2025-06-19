@@ -7,11 +7,10 @@ from accounts.models import Profile
 from products.models import Cart
 
 
+
 @pytest.mark.django_db
-def test_profile_creation():
-    user = User.objects.create_user(
-        username="testusertestusertestuser", password="password_test_user"
-    )
+def test_profile_creation(user):
+
     # profile = Profile.objects.create(user=user)
     profile = Profile.objects.get(user=user)
     cart = Cart.objects.get(user=user)
