@@ -44,6 +44,6 @@ def order(user, product, product_discount):
     return order_
 
 
-@pytest.fixture()
-def category():
-    return Category.objects.create(name="Category")
+@pytest.fixture
+def category(db):
+    return Category.objects.create(name="Test Category")
